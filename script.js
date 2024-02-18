@@ -92,7 +92,41 @@ class LinkedList {
 
         return removedNode;
     }
+
+    removeNode(nodeToRemove) {
+        if(!nodeToRemove) {
+            return null; //node to remove is not here
+        }
+
+        const prevNode = nodeToRemove.prev;
+        const nextNode = nodeToRemove.next;
+
+        if(prevNode) {
+            prevNode.next = nextNode;
+        }else {//remove head
+            this.head = nextNode; 
+        }
+        return nodeToRemove;
+    }
 }
+
+const node1 = {
+    prev: null,
+    next: null,
+    data: "A"
+};
+
+const node2 = {
+    prev: null,
+    next: null,
+    data: "B"
+};
+
+const node3 = {
+    prev: null,
+    next: null,
+    data: "E"
+};
 
 
 //create an instance of LinkedList - test med tom liste
