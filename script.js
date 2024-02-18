@@ -1,48 +1,11 @@
-//start defining how your node and linked list has to look like.
-//a node is suppose to have references to previous(prev) and the next(next) node, and a payload(data). 
-//A list needs to have a reference for both the first (head/first) and the last (tail/last) node.
-
-const node1 = { //a node not depending on other nodes containing an "A"
-    prev: null,
-    next: null,
-    data: "A" //payload
-}
-const node2 = {
-    prev: null, 
-    next: null,
-    data:"B"
-}
-
-const node3 = {
-    prev: null,
-    next: null,
-    data: "E"
-}
-
-node1.next = node2;
-node2.prev = node1;
-node2.next = node3;
-node3.prev = node2;
-
-const linkedList = [node1, node2, node3];
-
-//Note: you cannot add notes and their connections at the same time. First when they exists
-
-
-
-const num = new LinkedList();
-
-
-
-//Make a class for your list. Put the single node in as a single ekement for the list - both head and tail 
 
 class LinkedList {
     constructor() {
-        this.head = node1;
-        this.tail = node1;
-    
+        this.head = null;
+        this.tail = null;
     }
-//call this method in the console, like: num.dumpList();
+
+    //call this method in the console, num.dumpList();
     dumpList() {
         let aNode = this.head;
         console.log("List:");
@@ -61,20 +24,57 @@ class LinkedList {
         }
     }
 
-    add(node1) { //adds a new node in the end of the list
-        if(!this.head) {
-            this.head = node;
-            this.tail = node;
-    } else {
-        node.prev = this.tail;
-        this.tail.next = node;
-        this.tail = node;
+    add(data) {
+        const newNode = {
+            prev: null,
+            next: null,
+            data
+        };
 
-    } //this methid checks if the list is empty
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.prev = this.tail;
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+    }
+    addFirst(data) {
+        const newNode = {
+            prev: null,
+            next: null,
+            data
+        };
 
+        if(!this.head) { //if the list i sempty both head and tail are the new node
+            this.head = newNode;
+            this.tail = newNode
+
+        }else { //if the list is not empty, update the head and link to existing head
+        
+            newNode.next = this.head;
+            this.head.prev = newNode;
+            this.head = newNode;
+        }
+    }
 }
 
-//make an instance of LinkedList so you have code for testing. You can write that in the end of your JS file. 
+//create an instance of LinkedList - test med tom liste
+const num = new LinkedList();
+num.dumpList();
 
-//make to more nodes og chain them together - hardcoded
-}
+//test with one element
+num.add(1);
+num.dumpList();
+
+/*
+//add nodes to the list
+num.add("A");
+num.add("B");
+num.add("E");
+*/
+
+//test with two elements
+num.addFirst(0);
+num.dumpList();
