@@ -14,7 +14,7 @@ class LinkedList {
         console.log("--------");
 
         while(aNode) {
-            console.log("node1:");
+            console.log("node:");
             console.log(` prev: ${aNode.prev ? aNode.prev.data : 'null'}`);
             console.log(` next: ${aNode.next ? aNode.next.data : 'null'}`);
             console.log(` data: ${aNode.data}`);
@@ -58,6 +58,23 @@ class LinkedList {
             this.head = newNode;
         }
     }
+    removeLast() {
+        if(!this.head) {
+            return null;
+        }
+
+        const removedNode = this.tail;
+
+        if(this.head === this.tail) { //only one node in the list
+            this.head = null;
+            thia.tail = null;
+        }else { //more than one
+            this.tail = this.tail.prev;
+            this.tail.next = null;
+        }
+
+        return removedNode;
+    }
 }
 
 //create an instance of LinkedList - test med tom liste
@@ -68,12 +85,12 @@ num.dumpList();
 num.add(1);
 num.dumpList();
 
-/*
+
 //add nodes to the list
 num.add("A");
 num.add("B");
 num.add("E");
-*/
+
 
 //test with two elements
 num.addFirst(0);
