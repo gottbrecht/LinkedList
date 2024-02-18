@@ -75,7 +75,25 @@ class LinkedList {
 
         return removedNode;
     }
+
+    removeFirst() {
+        if(!this.head) {
+            return null;
+        }
+        const removedNode = this.head;
+
+        if(this.head === this.tail) {
+            this.head = null;
+            this.tail = null;
+        }else {
+            this.head = this.head.next;
+            this.head.prev = null;
+        }
+
+        return removedNode;
+    }
 }
+
 
 //create an instance of LinkedList - test med tom liste
 const num = new LinkedList();
