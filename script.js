@@ -128,6 +128,12 @@ const node3 = {
     data: "E"
 };
 
+node1.next = node2;
+node2.prev = node1;
+node2.next = node3;
+node3.prev = node2;
+
+
 
 //create an instance of LinkedList - test med tom liste
 const num = new LinkedList();
