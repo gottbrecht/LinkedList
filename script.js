@@ -67,7 +67,7 @@ class LinkedList {
 
         if(this.head === this.tail) { //only one node in the list
             this.head = null;
-            thia.tail = null;
+            this.tail = null;
         }else { //more than one
             this.tail = this.tail.prev;
             this.tail.next = null;
