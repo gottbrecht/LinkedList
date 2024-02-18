@@ -149,7 +149,20 @@ num.add("A");
 num.add("B");
 num.add("E");
 
+//test removeLast
+console.log("Removed last node:", num.removeLast());
+num.dumpList();
+
+//test removeFirst
+console.log("Removed first node:", num.removeFirst());
+num.dumpList();
+
+//test removeNode
+console.log("Removed node:", num.removeNode(node2));
+num.dumpList();
+
+/*
 
 //test with two elements
 num.addFirst(0);
-num.dumpList();
+num.dumpList(); */
